@@ -22,25 +22,25 @@ const Index = () => {
       name: 'Гельмут Коль',
       role: 'Канцлер ФРГ (1982-1998)',
       contribution: 'Главный архитектор объединения Германии, провел активную дипломатию с СССР и западными партнерами',
-      icon: 'User'
+      image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/0842e2ab-e6f0-41f2-80e0-a06bfe6aacfb.jpg'
     },
     {
       name: 'Михаил Горбачев',
       role: 'Генеральный секретарь ЦК КПСС',
       contribution: 'Политика перестройки и гласности сделала возможным мирное объединение Германии',
-      icon: 'Star'
+      image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/8a8ec294-38ea-40ee-9d12-657720aa1652.jpg'
     },
     {
       name: 'Эгон Кренц',
       role: 'Последний лидер ГДР',
       contribution: 'Принял решение об открытии границ 9 ноября 1989 года',
-      icon: 'UserCheck'
+      image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/306b0d77-2e8c-48c5-887a-59e52780a312.jpg'
     },
     {
       name: 'Ханс-Дитрих Геншер',
       role: 'Министр иностранных дел ФРГ',
       contribution: 'Провел ключевые переговоры о международном признании объединенной Германии',
-      icon: 'Users'
+      image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/7817f7bd-0d97-4df1-b772-2ad4c5a36ad1.jpg'
     }
   ];
 
@@ -177,12 +177,16 @@ const Index = () => {
             {personalities.map((person, idx) => (
               <Card 
                 key={idx} 
-                className="p-6 hover:scale-105 transition-transform shadow-lg border-2 border-primary/20 animate-fade-in"
+                className="p-6 hover:scale-105 transition-transform shadow-lg border-2 border-primary/20 animate-fade-in overflow-hidden"
                 style={{ animationDelay: `${idx * 0.15}s` }}
               >
                 <div className="flex justify-center mb-4">
-                  <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center border-4 border-accent">
-                    <Icon name={person.icon} size={36} className="text-accent" />
+                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-accent shadow-lg">
+                    <img 
+                      src={person.image} 
+                      alt={person.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-primary text-center mb-2">{person.name}</h3>
@@ -320,39 +324,6 @@ const Index = () => {
               )}
             </div>
           </Card>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12 flex items-center justify-center gap-3">
-            <Icon name="BookOpen" size={36} />
-            Материалы для уроков
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { title: 'Конспект урока', desc: 'Подробный план урока с заданиями', icon: 'FileText' },
-              { title: 'Презентация', desc: 'Слайды для демонстрации в классе', icon: 'Presentation' },
-              { title: 'Рабочие листы', desc: 'Задания для самостоятельной работы', icon: 'ClipboardList' },
-              { title: 'Видеоматериалы', desc: 'Ссылки на документальные фильмы', icon: 'Video' }
-            ].map((material, idx) => (
-              <Card 
-                key={idx}
-                className="p-6 hover:scale-105 transition-transform shadow-lg border-2 border-primary/20 cursor-pointer animate-fade-in"
-                style={{ animationDelay: `${idx * 0.1}s` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <Icon name={material.icon} size={24} className="text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{material.title}</h3>
-                    <p className="text-muted-foreground">{material.desc}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 
