@@ -232,18 +232,38 @@ const Index = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { title: 'Строительство стены, 1961', desc: 'Восточногерманские солдаты возводят заграждения' },
-              { title: 'Жизнь у стены, 1970-е', desc: 'Повседневная жизнь разделенного города' },
-              { title: 'Падение стены, 1989', desc: 'Берлинцы празднуют историческое событие' },
-              { title: 'Объединение, 1990', desc: 'Официальная церемония воссоединения Германии' }
+              { 
+                title: 'Строительство стены, 1961', 
+                desc: 'Восточногерманские солдаты возводят заграждения',
+                image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/02e93baa-8372-4959-bfe3-ebb7835dfc17.jpg'
+              },
+              { 
+                title: 'Жизнь у стены, 1970-е', 
+                desc: 'Повседневная жизнь разделенного города',
+                image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/77e96c2e-5fab-459e-9a57-d7df105b4e71.jpg'
+              },
+              { 
+                title: 'Падение стены, 1989', 
+                desc: 'Берлинцы празднуют историческое событие',
+                image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/355a40f8-bd68-4d3e-b033-89fa0e4fffaf.jpg'
+              },
+              { 
+                title: 'Объединение, 1990', 
+                desc: 'Официальная церемония воссоединения Германии',
+                image: 'https://cdn.poehali.dev/projects/8799f63c-7642-4c08-84ff-e68bdeeeffed/files/a9e29dc9-1d0d-49c6-ac73-800e56bd16b9.jpg'
+              }
             ].map((photo, idx) => (
               <Card 
                 key={idx} 
                 className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow border-2 border-primary/20 animate-fade-in"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <div className="h-64 bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center">
-                  <Icon name="Camera" size={64} className="text-muted-foreground/40" />
+                <div className="h-64 overflow-hidden">
+                  <img 
+                    src={photo.image} 
+                    alt={photo.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg font-bold text-primary mb-1">{photo.title}</h3>
